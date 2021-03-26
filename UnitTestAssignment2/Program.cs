@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace UnitTestAssignment2
 {
@@ -6,12 +6,9 @@ namespace UnitTestAssignment2
     {
         public static void Main(string[] args)
         {
-            string a = "akshayraj";
+            string a = "Akshayraj Sinh";
             Console.WriteLine("================================================================================");
-            Console.WriteLine("Convert \"" + a + "\" into Uppercase : " + a.ConvertUpper());
-            a = "AKSHAYRAJ";
-            Console.WriteLine("================================================================================");
-            Console.WriteLine("Convert \"" + a + "\" into Lowercase : " + a.ConvertLower());
+            Console.WriteLine("Convert \"" + a + "\" into Uppercase : " + a.ConvertUpperOrLower());
             a = "akshayraj jadeja";
             Console.WriteLine("================================================================================");
             Console.WriteLine("Convert \"" + a + "\" into Titlecase : " + a.ConvertTitleCase());
