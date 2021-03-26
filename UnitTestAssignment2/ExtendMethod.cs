@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text;
 
 namespace UnitTestAssignment2
@@ -20,66 +21,38 @@ namespace UnitTestAssignment2
             }
             return myWord;
         }
-        public static string ConvertLower(this string a)
+        public static string ConvertUpperOrLower(this string a)
         {
-            return a.ToLower();
-        }
-        public static string ConvertUpper(this string a)
-        {
-            return a.ToUpper();
+            var result = new StringBuilder();
+            for(int i = 0; i < a.Length; i++)
+            {
+                if (char.IsUpper(a[i]))
+                    result.Append(char.ToLower(a[i]));
+                else
+                    result.Append(char.ToUpper(a[i]));
+            }
+            return result.ToString();
         }
         public static bool IsLower(this string a)
         {
-            string Mystring = a;
-            char[] chars;
-            char ch;
-            int length = Mystring.Length;
-            int cnt;
-            int totalcntlower = 0;
-
-            chars = Mystring.ToCharArray(0, length);
-            for (cnt = 0; cnt < length; cnt++)
+            if(a.Any(char.IsUpper) || a.Any(char.IsDigit))
             {
-                ch = chars[cnt];
-                if (char.IsLower(ch))
-                {
-                    totalcntlower++;
-                }
-            }
-            if(totalcntlower == length)
-            {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
         public static bool IsUpper(this string a)
         {
-            string Mystring = a;
-            char[] chars;
-            char ch;
-            int length = Mystring.Length;
-            int cnt;
-            int totalcntupper = 0;
-
-            chars = Mystring.ToCharArray(0, length);
-            for (cnt = 0; cnt < length; cnt++)
+            if (a.Any(char.IsLower) || a.Any(char.IsDigit))
             {
-                ch = chars[cnt];
-                if (char.IsUpper(ch))
-                {
-                    totalcntupper++;
-                }
-            }
-            if (totalcntupper == length)
-            {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
         public static string ConvertCapitalize(this string a)
