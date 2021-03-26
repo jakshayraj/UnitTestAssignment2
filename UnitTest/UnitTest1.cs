@@ -7,143 +7,184 @@ namespace UnitTest
     public class UnitTest1
     {
         [Fact]
-        public void ConvertUpper1()
+        public void PositiveTestCase_For_ConvertUpperOrLower()
         {
-            string a = "test";
-            string result = a.ConvertUpper();
-            Assert.Equal("TEST", result);
+            // Arrange
+            string a = "This Is the tEST Cases for @1";
+            // Act
+            string result = a.ConvertUpperOrLower();
+            // Assert
+            Assert.Equal("tHIS iS THE Test cASES FOR @1", result);
         }
         [Fact]
-        public void ConvertUpper2()
+        public void NegativeTestCase_For_ConvertUpperOrLower()
         {
-            string a = "test";
-            string result = a.ConvertUpper();
-            Assert.NotEqual("Test", result);
+            // Arrange
+            string a = "This Is the tEST Cases for @1";
+            // Act
+            string result = a.ConvertUpperOrLower();
+            // Assert
+            Assert.NotEqual("tHIS iS THE Test cASES for @1", result);
         }
+       
         [Fact]
-        public void ConvertLower1()
+        public void PositiveTestCase_For_ConvertTitleCase()
         {
-            string a = "TEST";
-            string result = a.ConvertLower();
-            Assert.Equal("test", result);
-        }
-        [Fact]
-        public void ConvertLower2()
-        {
-            string a = "TEST";
-            string result = a.ConvertLower();
-            Assert.NotEqual("Test", result);
-        }
-        [Fact]
-        public void ConvertTitleCase1()
-        {
-            string a = "test cases";
+            // Arrange
+            string a = "This Is the test Cases for @1";
+            // Act
             string result = a.ConvertTitleCase();
-            Assert.Equal("Test Cases", result);
+            // Assert
+            Assert.Equal("This Is The Test Cases For @1", result);
         }
         [Fact]
-        public void ConvertTitleCase2()
+        public void NegativeTestCase_For_ConvertTitleCase()
         {
-            string a = "test cases";
+            // Arrange
+            string a = "This Is the tEST Cases for @1";
+            // Act
             string result = a.ConvertTitleCase();
-            Assert.NotEqual("TEST Cases", result);
+            // Assert
+            Assert.NotEqual("This Is the TEST Cases for @1", result);
         }
         [Fact]
-        public void IsLower1()
+        public void PositiveTestCase_For_IsLower()
         {
-            string a = "test";
+            // Arrange
+            string a = "this is the test cases";
+            // Act
             bool result = a.IsLower();
+            // Assert
             Assert.True(result);
         }
         [Fact]
-        public void IsLower2()
+        public void NegativeTestCase_For_IsLower()
         {
-            string a = "Test";
+            // Arrange
+            string a = "This Is the tEST Cases for @1";
+            // Act
             bool result = a.IsLower();
+            // Assert
             Assert.False(result);
         }
         [Fact]
-        public void IsUpper1()
+        public void PositiveTestCase_For_IsUpper()
         {
-            string a = "TEST";
+            // Arrange
+            string a = "THIS IS THE TEST CASES";
+            // Act
             bool result = a.IsUpper();
+            // Assert
             Assert.True(result);
         }
         [Fact]
-        public void IsUpper2()
+        public void NegativeTestCase_For_IsUpper()
         {
-            string a = "TESt";
+            // Arrange
+            string a = "THIS IS THE TEST CASEs";
+            // Act
             bool result = a.IsUpper();
+            // Assert
             Assert.False(result);
         }
         [Fact]
-        public void ConvertCapitalize1()
+        public void PpsitiveTestCase_For_ConvertCapitalize()
         {
-            string a = "test cases";
+            // Arrange
+            string a = "this Is the tEST Cases for @1";
+            // Act
             string result = a.ConvertCapitalize();
-            Assert.Equal("Test cases", result);
+            // Assert
+            Assert.Equal("This Is the tEST Cases for @1", result);
         }
         [Fact]
-        public void ConvertCapitalize2()
+        public void NegativeTestCase_For_ConvertCapitalize()
         {
-            string a = "test cases";
+            // Arrange
+            string a = "this Is the tEST Cases for @1";
+            // Act
             string result = a.ConvertCapitalize();
-            Assert.NotEqual("Test Cases", result);
+            // Assert
+            Assert.NotEqual("this Is the tEST Cases for @1", result);
         }
         [Fact]
-        public void WordCount1()
+        public void PositiveTestCase_For_WordCount()
         {
-            string a = "test cases";
+            // Arrange
+            string a = "This Is the tEST Cases for @1";
+            // Act
             int result = a.WordCount();
-            Assert.Equal(2, result);
+            // Assert
+            Assert.Equal(7, result);
         }
         [Fact]
-        public void WordCount2()
+        public void NegativeTestCase_For_WordCount()
         {
-            string a = "test cases";
+            // Arrange
+            string a = "This Is the tEST Cases for @1";
+            // Act
             int result = a.WordCount();
-            Assert.NotEqual(1, result);
+            // Assert
+            Assert.NotEqual(6, result);
         }
         [Fact]
-        public void RemoveLastCharacter1()
+        public void PositiveTestCase_For_RemoveLastCharacter()
         {
-            string a = "test";
+            // Arrange
+            string a = "This Is the tEST Cases for @1";
+            // Act
             string result = a.RemoveLastCharacter();
-            Assert.Equal("tes", result);
+            // Assert
+            Assert.Equal("This Is the tEST Cases for @", result);
         }
         [Fact]
-        public void RemoveLastCharacter2()
+        public void NegativeTestCase_For_RemoveLastCharacter()
         {
-            string a = "test";
+            // Arrange
+            string a = "This Is the tEST Cases for @1";
+            // Act
             string result = a.RemoveLastCharacter();
-            Assert.NotEqual("test", result);
+            // Assert
+            Assert.NotEqual("This Is the tEST Cases for @1", result);
         }
         [Fact]
-        public void ValidNumeric1()
+        public void PositiveTestCase_For_ValidNumeric()
         {
-            string a = "123";
+            // Arrange
+            string a = "123456";
+            // Act
             bool result = a.ValidNumeric();
+            // Assert
             Assert.True(result);
         }
         [Fact]
-        public void ValidNumeric2()
+        public void NegativeTestCase_For_ValidNumeric()
         {
-            string a = "123a";
+            // Arrange
+            string a = "This Is the tEST Cases for @1";
+            // Act
             bool result = a.ValidNumeric();
+            // Assert
             Assert.False(result);
         }
         [Fact]
-        public void StringToNumber1()
+        public void PositiveTestCase_For_StringToNumber()
         {
+            // Arrange
             string a = "123";
+            // Act
             int? result = a.StringToNumber();
+            // Assert
             Assert.Equal(123, result);
         }
         [Fact]
-        public void StringToNumber2()
+        public void NegativeTestCase_For_StringToNumber()
         {
+            // Arrange
             string a = "123a";
+            // Act
             int? result = a.StringToNumber();
+            // Assert
             Assert.Null(result);
         }
     }
